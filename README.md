@@ -1,4 +1,4 @@
-## swapi-node
+## swapi-node [![Build Status](https://travis-ci.org/lholmquist/swapi-node.svg)](https://travis-ci.org/lholmquist/swapi-node)
 
 A Node.js helper library for http://swapi.co/ - the Star Wars API
 
