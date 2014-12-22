@@ -1,0 +1,23 @@
+{
+  "name": "swapi-node",
+  "version": "0.0.1",
+  "description": "A Node.js helper library for swapi.co",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha test --reporter=nyan"
+  },
+  "author": {
+        "name": "Lucas Holmquist",
+        "email": "lucas.holmquist@gmail.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:lholmquist/swapi-node.git"
+    },
+  "license": "BSD",
+  "devDependencies": {
+    "mocha": "^2.0.1",
+    "nock": "^0.52.4",
+    "should": "^4.4.1"
+  }
+}
