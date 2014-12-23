@@ -31,6 +31,12 @@ All api calls return Promises, so this also works
     });
 
 
+There is a general `get` method that takes a `url`.  So this is also possible:
+
+    swapi.get('http://swapi.co/api/people/?page=2').then(function (result) {
+        console.log(result);
+    });
+
 ### Note
 
 This API tries to follow the API for the Python helper lib here: https://github.com/phalt/swapi-python
