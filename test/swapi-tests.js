@@ -275,3 +275,67 @@ describe('API Tests', function () {
         });
     });
 });
+
+describe('Paging tests', function () {
+    describe('nextPage', function () {
+        it('returned value should have a nextPage function added', function (done) {
+            nock('http://swapi.co/api/')
+            .matchHeader('User-Agent', 'swapi-node')
+            .matchHeader('SWAPI-Node-Version', version)
+            .get('/people/')
+            .reply(200, {
+                count: 82,
+                next: 'http://swapi.co/api/people/?page=2',
+                previous: null
+            });
+
+            swapi.get('http://swapi.co/api/people/').then(function (result) {
+                result.nextPage.should.be.type('function');
+
+                nock('http://swapi.co/api/')
+                .matchHeader('User-Agent', 'swapi-node')
+                .matchHeader('SWAPI-Node-Version', version)
+                .get('/people/?page=2')
+                .reply(200, {
+                    count: 82,
+                    next: 'http://swapi.co/api/people/?page=3',
+                    previous: null
+                });
+
+                result.nextPage().then(function (result) {
+                    done();
+                });
+            });
+        });
+    });
+
+    describe('previousPage', function () {
+        it('returned value should have a previousPage function added', function (done) {
+            nock('http://swapi.co/api/')
+            .matchHeader('User-Agent', 'swapi-node')
+            .matchHeader('SWAPI-Node-Version', version)
+            .get('/people/')
+            .reply(200, {
+                count: 82,
+                previous: 'http://swapi.co/api/people/?page=2'
+            });
+
+            swapi.get('http://swapi.co/api/people/').then(function (result) {
+                result.previousPage.should.be.type('function');
+
+                nock('http://swapi.co/api/')
+                .matchHeader('User-Agent', 'swapi-node')
+                .matchHeader('SWAPI-Node-Version', version)
+                .get('/people/?page=2')
+                .reply(200, {
+                    count: 82,
+                    previous: 'http://swapi.co/api/people/?page=1',
+                });
+
+                result.previousPage().then(function (result) {
+                    done();
+                });
+            });
+        });
+    });
+});
