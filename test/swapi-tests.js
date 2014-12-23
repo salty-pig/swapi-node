@@ -7,6 +7,22 @@ var Promise = require('es6-promise').Promise;
 nock.disableNetConnect();
 
 describe('API Tests', function () {
+    describe('Get a resource', function () {
+        it('should call the get api with a url', function (done) {
+            nock('http://swapi.co/api/')
+            .matchHeader('User-Agent', 'swapi-node')
+            .matchHeader('SWAPI-Node-Version', version)
+            .get('/people/?page=2')
+            .reply(200, {});
+
+            swapi.get('http://swapi.co/api/people/?page=2', function (err, result) {
+                if (!err) {
+                    done();
+                }
+            });
+        });
+    });
+
     describe('Get People', function () {
         it('should call the people api', function (done) {
 
