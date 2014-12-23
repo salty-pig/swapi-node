@@ -276,6 +276,57 @@ describe('API Tests', function () {
     });
 });
 
+describe('Sub Resource Tests', function () {
+    describe('getProperty', function () {
+        it('property with link should have a corresponding getter', function (done) {
+            nock('http://swapi.co/api/')
+                .matchHeader('User-Agent', 'swapi-node')
+                .matchHeader('SWAPI-Node-Version', version)
+                .get('/people/1')
+                .reply(200, {
+                    name: 'Luke Skywalker',
+                    'homeworld': 'http://swapi.co/api/planets/1/',
+                });
+
+            swapi.getPerson(1).then(function (result) {
+                (typeof result.getHomeworld === 'function').should.equal(true);
+
+                nock('http://swapi.co/api/')
+                .matchHeader('User-Agent', 'swapi-node')
+                .matchHeader('SWAPI-Node-Version', version)
+                .get('/planets/1/')
+                .reply(200, {
+                    'name': 'Tatooine'
+                });
+
+                return result.getHomeworld();
+            }).then(function (result) {
+                done();
+            });
+        });
+
+        it('property with out link should have a corresponding getter anyway', function (done) {
+            nock('http://swapi.co/api/')
+                .matchHeader('User-Agent', 'swapi-node')
+                .matchHeader('SWAPI-Node-Version', version)
+                .get('/people/1')
+                .reply(200, {
+                    name: 'Luke Skywalker',
+                    'homeworld': 'http://swapi.co/api/planets/1/',
+                });
+
+            swapi.getPerson(1).then(function (result) {
+                (typeof result.getName === 'function').should.equal(true);
+
+                return result.getName();
+            }).then(function (result) {
+                result.should.equal('Luke Skywalker');
+                done();
+            });
+        });
+    });
+});
+
 describe('Paging tests', function () {
     describe('nextPage', function () {
         it('returned value should have a nextPage function added', function (done) {
