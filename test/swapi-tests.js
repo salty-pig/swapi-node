@@ -22,32 +22,6 @@ describe('API Tests', function () {
     });
 
     describe('Get People', function () {
-        it('should call the people api', function (done) {
-
-            nock('http://swapi.co/api/')
-            .matchHeader('User-Agent', 'swapi-node')
-            .matchHeader('SWAPI-Node-Version', version)
-            .get('/people/1')
-            .reply(200, {});
-
-            swapi.getPerson(1).then(function (result) {
-                done();
-            });
-        });
-
-        it('should call the people api with an error', function (done) {
-
-            nock('http://swapi.co/api/')
-            .matchHeader('User-Agent', 'swapi-node')
-            .matchHeader('SWAPI-Node-Version', version)
-            .get('/people/1')
-            .reply(400, {});
-
-            swapi.getPerson(1).catch(function (err) {
-                return done();
-            });
-        });
-
         it('should call the people api and return a Promise', function (done) {
 
             nock('http://swapi.co/api/')
@@ -57,6 +31,21 @@ describe('API Tests', function () {
             .reply(200, {});
 
             var request = swapi.getPerson(1).then(function (result) {
+                done();
+            });
+
+            request.should.be.an.instanceof(Promise);
+        });
+
+        it('should call the people api with options and return a Promise', function (done) {
+
+            nock('http://swapi.co/api/')
+            .matchHeader('User-Agent', 'swapi-node')
+            .matchHeader('SWAPI-Node-Version', version)
+            .get('/people/1')
+            .reply(200, {});
+
+            var request = swapi.getPerson({id: 1}).then(function (result) {
                 done();
             });
 
@@ -96,6 +85,21 @@ describe('API Tests', function () {
             request.should.be.an.instanceof(Promise);
         });
 
+        it('should call the films api with options and return a Promise', function (done) {
+
+            nock('http://swapi.co/api/')
+            .matchHeader('User-Agent', 'swapi-node')
+            .matchHeader('SWAPI-Node-Version', version)
+            .get('/films/1')
+            .reply(200, {});
+
+            var request = swapi.getFilm({id: 1}).then(function (result) {
+                done();
+            });
+
+            request.should.be.an.instanceof(Promise);
+        });
+
 
         it('should call the films api with an error and return a Promise', function (done) {
 
@@ -129,6 +133,20 @@ describe('API Tests', function () {
             request.should.be.an.instanceof(Promise);
         });
 
+        it('should call the vehicles api and return a Promise', function (done) {
+
+            nock('http://swapi.co/api/')
+            .matchHeader('User-Agent', 'swapi-node')
+            .matchHeader('SWAPI-Node-Version', version)
+            .get('/vehicles/1')
+            .reply(200, {});
+
+            var request = swapi.getVehicle({id: 1}).then(function (result) {
+                done();
+            });
+
+            request.should.be.an.instanceof(Promise);
+        });
 
         it('should call the vehicles api with an error and return a Promise', function (done) {
 
@@ -162,6 +180,20 @@ describe('API Tests', function () {
             request.should.be.an.instanceof(Promise);
         });
 
+        it('should call the species api with options and return a Promise', function (done) {
+
+            nock('http://swapi.co/api/')
+            .matchHeader('User-Agent', 'swapi-node')
+            .matchHeader('SWAPI-Node-Version', version)
+            .get('/species/1')
+            .reply(200, {});
+
+            var request = swapi.getSpecies({id: 1}).then(function (result) {
+                done();
+            });
+
+            request.should.be.an.instanceof(Promise);
+        });
 
         it('should call the species api with an error and return a Promise', function (done) {
 
