@@ -4,7 +4,8 @@
   "description": "A Node.js helper library for swapi.co",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha test --reporter=nyan"
+    "test": "./node_modules/mocha/bin/mocha test --reporter=nyan",
+    "prepublish": "./node_modules/nsp/bin/nsp check"
   },
   "author": {
     "name": "Lucas Holmquist",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "mocha": "^2.0.1",
     "nock": "^0.52.4",
+    "nsp": "^2.0.2",
     "should": "^4.4.1"
   },
   "dependencies": {
