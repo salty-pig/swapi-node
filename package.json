@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha test --reporter=nyan",
-    "prepublish": "./node_modules/nsp/bin/nsp check"
+    "prepublish": "./node_modules/nsp/bin/nsp check",
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
+    "coveralls": "npm run coverage -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "author": {
     "name": "Lucas Holmquist",
@@ -21,7 +23,10 @@
   ],
   "license": "BSD",
   "devDependencies": {
+    "coveralls": "^2.11.4",
+    "istanbul": "^0.4.1",
     "mocha": "^2.3.4",
+    "mocha-lcov-reporter": "^1.0.0",
     "nock": "^3.3.2",
     "nsp": "^2.0.2",
     "should": "^7.1.1"
