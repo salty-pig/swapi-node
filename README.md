@@ -1,4 +1,4 @@
-## swapi-node [![Build Status](https://travis-ci.org/salty-pig/swapi-node.svg)](https://travis-ci.org/salty-pig/swapi-node) [![Dependency Status](https://david-dm.org/salty-pig/swapi-node.png)](https://david-dm.org/salty-pig/swapi-node)
+## swapi-node [![Build Status](https://travis-ci.org/salty-pig/swapi-node.svg)](https://travis-ci.org/salty-pig/swapi-node) [![Dependency Status](https://david-dm.org/salty-pig/swapi-node.png)](https://david-dm.org/salty-pig/swapi-node) [![Coverage Status](https://coveralls.io/repos/salty-pig/swapi-node/badge.svg?branch=master&service=github)](https://coveralls.io/github/salty-pig/swapi-node?branch=master)
 
 A Node.js helper library for http://swapi.co/ - the Star Wars API
 
