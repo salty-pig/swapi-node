@@ -2,7 +2,7 @@ require('should');
 var nock = require('nock');
 var swapi = require('../index.js');
 var version = require('../package.json').version;
-var Promise = require('es6-promise').Promise;
+//var Promise = require('es6-promise').Promise;
 
 nock.disableNetConnect();
 

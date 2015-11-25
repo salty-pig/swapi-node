@@ -25,7 +25,6 @@
     "should": "^4.4.1"
   },
   "dependencies": {
-    "es6-promise": "^2.0.1",
     "request": "^2.51.0"
   }
 }
