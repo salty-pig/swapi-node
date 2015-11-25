@@ -5,7 +5,7 @@ A Node.js helper library for http://swapi.co/ - the Star Wars API
 
 ## Requirements
 
-* node.js
+* node.js - 0.12.0+ (Uses Native Promises)
 * love of Star Wars
 
 
@@ -140,3 +140,7 @@ This might produce some json like this:
 This API tries to follow the API for the Python helper lib here: https://github.com/phalt/swapi-python
 
 For documentation on the Star Wars API, check out their docs:  http://swapi.co/documentation
+
+## Breaking Changes
+
+- 0.3.0 - Usage of Native Promises, Node 0.12+ or greater needed
