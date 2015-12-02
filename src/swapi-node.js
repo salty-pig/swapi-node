@@ -1,11 +1,11 @@
 var request = require('request'),
     util = require('./util');
 
-var baseUrl = 'http://swapi.co/api/';
+const BASE_URL = 'http://swapi.co/api/';
 
 function sendRequest(options) {
-    return new Promise(function (resolve, reject) {
-        request(options, function (error, response, body) {
+    return new Promise((resolve, reject) => {
+        request(options, (error, response, body) => {
             if (error || response.statusCode > 399) {
                 return reject({error: response.statusCode});
             }
@@ -18,9 +18,9 @@ function sendRequest(options) {
                 return reject({error: 'JSON parse error'});
             }
 
-            ['nextPage', 'previousPage'].forEach(function (value) {
-                jsonBody[value] = (function () {
-                    return function () {
+            ['nextPage', 'previousPage'].forEach((value) => {
+                jsonBody[value] = (() => {
+                    return () => {
                         var url = jsonBody[(value.indexOf('next') > -1) ? 'next' : 'previous'];
                         if (url) {
                             return makeRequest(url);
@@ -31,26 +31,26 @@ function sendRequest(options) {
                 })();
             });
 
-            Object.keys(jsonBody).forEach(function (value) {
+            Object.keys(jsonBody).forEach((value) => {
                 if (typeof jsonBody[value] !== 'function') {
-                    jsonBody['get' + util.capitaliseFirstLetter(value)] = (function () {
-                        return function () {
+                    jsonBody['get' + util.capitaliseFirstLetter(value)] = (() => {
+                        return () => {
                             if (!Array.isArray(jsonBody[value])) {
-                                if (jsonBody[value].indexOf(baseUrl) > -1) {
+                                if (jsonBody[value].indexOf(BASE_URL) > -1) {
                                     return makeRequest(jsonBody[value]);
                                 }
 
                                 return Promise.resolve(jsonBody[value]);
                             }
 
-                            var p = jsonBody[value].map(function (val) {
-                                if (val.indexOf(baseUrl) > -1) {
+                            var p = jsonBody[value].map((val) => {
+                                if (val.indexOf(BASE_URL) > -1) {
                                     return makeRequest(val);
                                 }
                                 return Promise.resolve(val);
                             });
 
-                            return Promise.all(p).then(function (v) {
+                            return Promise.all(p).then((v) => {
                                 return v;
                             });
                         };
@@ -65,7 +65,7 @@ function sendRequest(options) {
 
 function makeRequest(url) {
     var options = {
-        url: (url.indexOf(baseUrl) > -1) ? url : baseUrl + url,
+        url: (url.indexOf(BASE_URL) > -1) ? url : BASE_URL + url,
         headers: {
             'User-Agent': 'swapi-node',
             'SWAPI-Node-Version': require('../package.json').version,
@@ -92,26 +92,26 @@ function parseOptions(options) {
 }
 
 module.exports = {
-    get: function (url) {
+    get (url) {
         return makeRequest(url);
     },
-    getPerson: function (options) {
+    getPerson (options) {
         var opts = parseOptions(options);
         return makeRequest('people' + (opts.id ? '/' + opts.id : '/'));
     },
-    getStarship: function (options) {
+    getStarship (options) {
         var opts = parseOptions(options);
         return makeRequest('starship' + (opts.id ? '/' + opts.id : '/'));
     },
-    getVehicle: function (options) {
+    getVehicle (options) {
         var opts = parseOptions(options);
         return makeRequest('vehicles' + (opts.id ? '/' + opts.id : '/'));
     },
-    getFilm: function (options) {
+    getFilm (options) {
         var opts = parseOptions(options);
         return makeRequest('films' + (opts.id ? '/' + opts.id : '/'));
     },
-    getSpecies: function (options) {
+    getSpecies (options) {
         var opts = parseOptions(options);
         return makeRequest('species' + (opts.id ? '/' + opts.id : '/'));
     }
