@@ -1,7 +1,7 @@
 'use strict';
 
 const nock = require('nock');
-const swapi = require('../src/swapi-node.js');
+const swapi = require('../lib/swapi-node.js');
 const version = require('../package.json').version;
 const test = require('tape');
 
