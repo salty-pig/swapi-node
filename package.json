@@ -33,7 +33,8 @@
     "mocha-lcov-reporter": "^1.0.0",
     "nock": "^9.0.2",
     "nsp": "^2.0.2",
-    "should": "^11.2.0"
+    "should": "^11.2.0",
+    "tape": "^4.6.3"
   },
   "dependencies": {
     "request": "^2.67.0"
