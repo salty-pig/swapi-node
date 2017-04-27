@@ -18,24 +18,16 @@ A Node.js helper library for http://swapi.co/ - the Star Wars API
 
 ## Usage
 
-    var swapi = require('swapi-node');
+    const swapi = require('swapi-node');
 
-    // To get just 1 person
-    swapi.getPerson(1, function (err, result) {
-        console.log(result);
-    });
-
-
-All api calls return Promises, so this also works
-
-    swapi.getPerson(1).then(function (result) {
+    swapi.getPerson(1).then((result) => {
         console.log(result);
     });
 
 
 There is a general `get` method that takes a `url`.  So this is also possible:
 
-    swapi.get('http://swapi.co/api/people/?page=2').then(function (result) {
+    swapi.get('http://swapi.co/api/people/?page=2').then((result) => {
         console.log(result);
     });
 
@@ -45,15 +37,15 @@ There are helper methods to get results from the next/previous page called `next
 
 Here is an example
 
-    swapi.get('http://swapi.co/api/people/').then(function (result) {
+    swapi.get('http://swapi.co/api/people/').then((result) => {
         console.log(result);
         return result.nextPage();
-    }).then(function (result) {
+    }).then((result) => {
         console.log(result);
         return result.previousPage();
-    }).then(function (result) {
+    }).then((result) => {
         console.log(result);
-    }).catch(function (err) {
+    }).catch((err) => {
         console.log(err);
     });
 
@@ -96,7 +88,7 @@ For example,  a call to `getPerson(1)` might return this json:
 
 taking "homeworld" as an example,  you can now call `getHomeworld()`, which will return a Promise
 
-    getHomeworld().then(function (result) {
+    getHomeworld().then((result) => {
         console.log(result);
     });
 

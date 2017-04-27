@@ -1,8 +1,8 @@
-var swapi = require('./index.js');
+const swapi = require('./index.js');
 
-swapi.getPerson().then(function (result) {
+swapi.getPerson().then((result) => {
     console.log(result);
-}).catch(function (err) {
+}).catch((err) => {
     console.log(err);
 });
 
