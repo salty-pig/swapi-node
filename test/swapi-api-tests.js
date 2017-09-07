@@ -106,7 +106,7 @@ test('GET starship', (t) => {
   nock('http://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
-    .get('/starship/1')
+    .get('/starships/1')
     .reply(200, {});
 
   const request = swapi.getStarship(1).then((result) => {
@@ -121,7 +121,7 @@ test('GET starship - with options', (t) => {
   nock('http://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
-    .get('/starship/1')
+    .get('/starships/1')
     .reply(200, {});
 
   const request = swapi.getStarship({id: 1}).then((result) => {
@@ -134,7 +134,7 @@ test('GET starship - with error', (t) => {
   nock('http://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
-    .get('/starship/1')
+    .get('/starships/1')
     .reply(400, {});
 
   const request = swapi.getStarship({id: 1}).then(null, (result) => {
