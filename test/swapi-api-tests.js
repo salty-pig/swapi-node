@@ -232,7 +232,7 @@ test('GET planets', (t) => {
     .get('/planets/1')
     .reply(200, {});
 
-  const request = swapi.getPlanets(1).then((result) => {
+  const request = swapi.getPlanet(1).then((result) => {
     t.pass('success return');
     t.end();
   });
@@ -247,7 +247,7 @@ test('GET planets - with options', (t) => {
     .get('/planets/1')
     .reply(200, {});
 
-  const request = swapi.getPlanets({id: 1}).then((result) => {
+  const request = swapi.getPlanet({id: 1}).then((result) => {
     t.pass('success return');
     t.end();
   });
@@ -260,7 +260,7 @@ test('GET planets - with error', (t) => {
     .get('/planets/1')
     .reply(400, {});
 
-  const request = swapi.getPlanets({id: 1}).then(null, (result) => {
+  const request = swapi.getPlanet({id: 1}).then(null, (result) => {
     t.pass('error return');
     t.end();
   });
