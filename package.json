@@ -23,7 +23,7 @@
   ],
   "license": "BSD",
   "devDependencies": {
-    "coveralls": "^2.11.4",
+    "coveralls": "^3.0.0",
     "istanbul": "^0.4.5",
     "nock": "^9.0.22",
     "nsp": "^2.0.2",
