@@ -224,3 +224,45 @@ test('GET species - with error', (t) => {
     t.end();
   });
 });
+
+
+test('GET planets', (t) => {
+  nock('http://swapi.co/api/')
+    .matchHeader('User-Agent', 'swapi-node')
+    .matchHeader('SWAPI-Node-Version', version)
+    .get('/planets/1')
+    .reply(200, {});
+
+  const request = swapi.getPlanet(1).then((result) => {
+    t.pass('success return');
+    t.end();
+  });
+
+  t.equal(request instanceof Promise, true, 'should return a Promise');
+});
+
+test('GET planets - with options', (t) => {
+  nock('http://swapi.co/api/')
+    .matchHeader('User-Agent', 'swapi-node')
+    .matchHeader('SWAPI-Node-Version', version)
+    .get('/planets/1')
+    .reply(200, {});
+
+  const request = swapi.getPlanet({id: 1}).then((result) => {
+    t.pass('success return');
+    t.end();
+  });
+});
+
+test('GET planets - with error', (t) => {
+  nock('http://swapi.co/api/')
+    .matchHeader('User-Agent', 'swapi-node')
+    .matchHeader('SWAPI-Node-Version', version)
+    .get('/planets/1')
+    .reply(400, {});
+
+  const request = swapi.getPlanet({id: 1}).then(null, (result) => {
+    t.pass('error return');
+    t.end();
+  });
+});
