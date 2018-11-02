@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js",
-    "prepublish": "nsp check",
     "coverage": "istanbul cover tape -- test/*.js",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls",
     "ci": "npm run test && npm run coveralls"
@@ -27,7 +26,6 @@
     "coveralls": "^3.0.0",
     "istanbul": "^0.4.5",
     "nock": "^9.0.22",
-    "nsp": "^3.0.0",
     "tape": "^4.6.3"
   },
   "dependencies": {
