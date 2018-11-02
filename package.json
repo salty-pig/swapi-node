@@ -31,6 +31,6 @@
     "tape": "^4.6.3"
   },
   "dependencies": {
-    "request": "^2.84.0"
+    "request": "~2.88.0"
   }
 }
