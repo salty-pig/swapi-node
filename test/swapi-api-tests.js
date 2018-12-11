@@ -8,20 +8,20 @@ const test = require('tape');
 nock.disableNetConnect();
 
 test('GET a resource', (t) => {
-  nock('http://swapi.co/api/')
+  nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/people/?page=2')
     .reply(200, {});
 
-  swapi.get('http://swapi.co/api/people/?page=2').then((result) => {
+  swapi.get('https://swapi.co/api/people/?page=2').then((result) => {
     t.pass('return success');
     t.end();
   });
 });
 
 test('GET People - Return a Promise', (t) => {
-  nock('http://swapi.co/api/')
+  nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/people/1')
@@ -36,7 +36,7 @@ test('GET People - Return a Promise', (t) => {
 });
 
 test('GET People - using options', (t) => {
-  nock('http://swapi.co/api/')
+  nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/people/1')
@@ -49,7 +49,7 @@ test('GET People - using options', (t) => {
 });
 
 test('GET People - error returned', (t) => {
-  nock('http://swapi.co/api/')
+  nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/people/1')
@@ -62,7 +62,7 @@ test('GET People - error returned', (t) => {
 });
 
 test('GET films', (t) => {
-  nock('http://swapi.co/api/')
+  nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/films/1')
@@ -77,7 +77,7 @@ test('GET films', (t) => {
 });
 
 test('GET films - with options', (t) => {
-  nock('http://swapi.co/api/')
+  nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/films/1')
@@ -90,7 +90,7 @@ test('GET films - with options', (t) => {
 });
 
 test('GET films - with error', (t) => {
-  nock('http://swapi.co/api/')
+  nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/films/1')
@@ -103,7 +103,7 @@ test('GET films - with error', (t) => {
 });
 
 test('GET starship', (t) => {
-  nock('http://swapi.co/api/')
+  nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/starships/1')
@@ -118,7 +118,7 @@ test('GET starship', (t) => {
 });
 
 test('GET starship - with options', (t) => {
-  nock('http://swapi.co/api/')
+  nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/starships/1')
@@ -131,7 +131,7 @@ test('GET starship - with options', (t) => {
 });
 
 test('GET starship - with error', (t) => {
-  nock('http://swapi.co/api/')
+  nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/starships/1')
@@ -144,7 +144,7 @@ test('GET starship - with error', (t) => {
 });
 
 test('GET vehicles', (t) => {
-  nock('http://swapi.co/api/')
+  nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/vehicles/1')
@@ -159,7 +159,7 @@ test('GET vehicles', (t) => {
 });
 
 test('GET vehicles - with options', (t) => {
-  nock('http://swapi.co/api/')
+  nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/vehicles/1')
@@ -172,7 +172,7 @@ test('GET vehicles - with options', (t) => {
 });
 
 test('GET vehicles - with error', (t) => {
-  nock('http://swapi.co/api/')
+  nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/vehicles/1')
@@ -185,7 +185,7 @@ test('GET vehicles - with error', (t) => {
 });
 
 test('GET species', (t) => {
-  nock('http://swapi.co/api/')
+  nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/species/1')
@@ -200,7 +200,7 @@ test('GET species', (t) => {
 });
 
 test('GET species - with options', (t) => {
-  nock('http://swapi.co/api/')
+  nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/species/1')
@@ -213,7 +213,7 @@ test('GET species - with options', (t) => {
 });
 
 test('GET species - with error', (t) => {
-  nock('http://swapi.co/api/')
+  nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/species/1')
