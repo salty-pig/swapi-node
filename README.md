@@ -27,17 +27,17 @@ A Node.js helper library for http://swapi.co/ - the Star Wars API
 
 There is a general `get` method that takes a `url`.  So this is also possible:
 
-    swapi.get('http://swapi.co/api/people/?page=2').then((result) => {
+    swapi.get('https://swapi.co/api/people/?page=2').then((result) => {
         console.log(result);
     });
 
-When you call a "Base URL", like http://swapi.co/api/people/, it will include a `next` and `previous` parameter.  These will be the link to the next/previous page of data.
+When you call a "Base URL", like https://swapi.co/api/people/, it will include a `next` and `previous` parameter.  These will be the link to the next/previous page of data.
 
 There are helper methods to get results from the next/previous page called `nextPage` and `previousPage`.  Each of these returns a Promise
 
 Here is an example
 
-    swapi.get('http://swapi.co/api/people/').then((result) => {
+    swapi.get('https://swapi.co/api/people/').then((result) => {
         console.log(result);
         return result.nextPage();
     }).then((result) => {
@@ -65,25 +65,25 @@ For example,  a call to `getPerson(1)` might return this json:
         "eye_color": "blue",
         "birth_year": "19BBY",
         "gender": "male",
-        "homeworld": "http://swapi.co/api/planets/1/",
+        "homeworld": "https://swapi.co/api/planets/1/",
         "films": [
-            "http://swapi.co/api/films/1/",
-            "http://swapi.co/api/films/2/",
-            "http://swapi.co/api/films/3/",
-            "http://swapi.co/api/films/6/"
+            "https://swapi.co/api/films/1/",
+            "https://swapi.co/api/films/2/",
+            "https://swapi.co/api/films/3/",
+            "https://swapi.co/api/films/6/"
         ],
         "species": [],
         "vehicles": [
-            "http://swapi.co/api/vehicles/14/",
-            "http://swapi.co/api/vehicles/30/"
+            "https://swapi.co/api/vehicles/14/",
+            "https://swapi.co/api/vehicles/30/"
         ],
         "starships": [
-            "http://swapi.co/api/starships/12/",
-            "http://swapi.co/api/starships/22/"
+            "https://swapi.co/api/starships/12/",
+            "https://swapi.co/api/starships/22/"
         ],
         "created": "2014-12-09T13:50:51.644000Z",
         "edited": "2014-12-20T21:17:56.891000Z",
-        "url": "http://swapi.co/api/people/1/"
+        "url": "https://swapi.co/api/people/1/"
     }
 
 taking "homeworld" as an example,  you can now call `getHomeworld()`, which will return a Promise
@@ -106,27 +106,27 @@ This might produce some json like this:
         "surface_water": "1",
         "population": "200000",
         "residents": [
-            "http://swapi.co/api/people/1/",
-            "http://swapi.co/api/people/2/",
-            "http://swapi.co/api/people/4/",
-            "http://swapi.co/api/people/6/",
-            "http://swapi.co/api/people/7/",
-            "http://swapi.co/api/people/8/",
-            "http://swapi.co/api/people/9/",
-            "http://swapi.co/api/people/11/",
-            "http://swapi.co/api/people/43/",
-            "http://swapi.co/api/people/62/"
+            "https://swapi.co/api/people/1/",
+            "https://swapi.co/api/people/2/",
+            "https://swapi.co/api/people/4/",
+            "https://swapi.co/api/people/6/",
+            "https://swapi.co/api/people/7/",
+            "https://swapi.co/api/people/8/",
+            "https://swapi.co/api/people/9/",
+            "https://swapi.co/api/people/11/",
+            "https://swapi.co/api/people/43/",
+            "https://swapi.co/api/people/62/"
         ],
         "films": [
-            "http://swapi.co/api/films/1/",
-            "http://swapi.co/api/films/3/",
-            "http://swapi.co/api/films/4/",
-            "http://swapi.co/api/films/5/",
-            "http://swapi.co/api/films/6/"
+            "https://swapi.co/api/films/1/",
+            "https://swapi.co/api/films/3/",
+            "https://swapi.co/api/films/4/",
+            "https://swapi.co/api/films/5/",
+            "https://swapi.co/api/films/6/"
         ],
         "created": "2014-12-09T13:50:49.641000Z",
         "edited": "2014-12-21T20:48:04.175778Z",
-        "url": "http://swapi.co/api/planets/1/"
+        "url": "https://swapi.co/api/planets/1/"
     }
 
 ### Note
