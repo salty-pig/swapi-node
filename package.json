@@ -4,6 +4,7 @@
   "description": "A Node.js helper library for swapi.co",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "test": "tape test/*.js",
     "coverage": "istanbul cover tape -- test/*.js",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls",
@@ -23,10 +24,13 @@
   ],
   "license": "BSD",
   "devDependencies": {
+    "@types/request": "~2.48.1",
     "coveralls": "^3.0.0",
     "istanbul": "^0.4.5",
     "nock": "^9.0.22",
-    "tape": "^4.6.3"
+    "tape": "^4.6.3",
+    "tslint": "~5.12.1",
+    "typescript": "~3.3.1"
   },
   "dependencies": {
     "request": "~2.88.0"
