@@ -2,13 +2,23 @@
   "name": "swapi-node",
   "version": "0.4.4",
   "description": "A Node.js helper library for swapi.co",
-  "main": "index.js",
+  "main": "./dist/swapi-node.js",
+  "types": "./dist/swapi-node.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "tape test/*.js",
-    "coverage": "istanbul cover tape -- test/*.js",
-    "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls",
+    "test": "tape -r ts-node/register test/*.js | tap-spec",
+    "coverage": "nyc npm run test",
+    "coverage:html": "nyc npm test && nyc report --reporter=html",
+    "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "ci": "npm run test && npm run coveralls"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "exclude": [
+      "test/*.js"
+    ]
   },
   "author": {
     "name": "Lucas Holmquist",
@@ -28,7 +38,10 @@
     "coveralls": "^3.0.0",
     "istanbul": "^0.4.5",
     "nock": "^9.0.22",
+    "nyc": "~13.2.0",
+    "tap-spec": "~5.0.0",
     "tape": "^4.6.3",
+    "ts-node": "~8.0.2",
     "tslint": "~5.12.1",
     "typescript": "~3.3.1"
   },

@@ -1,4 +1,4 @@
-const swapi = require('./index.js');
+const swapi = require('./dist/swapi-node');
 
 swapi.getPerson().then((result) => {
     console.log(result);
