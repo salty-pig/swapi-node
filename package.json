@@ -36,7 +36,6 @@
   "devDependencies": {
     "@types/request": "~2.48.1",
     "coveralls": "^3.0.0",
-    "istanbul": "^0.4.5",
     "nock": "^9.0.22",
     "nyc": "~13.2.0",
     "tap-spec": "~5.0.0",
