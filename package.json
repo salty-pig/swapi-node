@@ -16,7 +16,9 @@
     "ci": "npm run test && npm run coveralls"
   },
   "files": [
-    "lib/**/*"
+    "dist/*.ts",
+    "dist/*.js",
+    "README.md"
   ],
   "nyc": {
     "extension": [
