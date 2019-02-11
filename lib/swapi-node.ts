@@ -23,7 +23,7 @@ function sendRequest(options: any) {
       ['nextPage', 'previousPage'].forEach((value) => {
         jsonBody[value] = (() => {
           return () => {
-            var url = jsonBody[(value.indexOf('next') > -1) ? 'next' : 'previous'];
+            const url = jsonBody[(value.indexOf('next') > -1) ? 'next' : 'previous'];
             if (url) {
               return makeRequest(url);
             }
@@ -45,7 +45,7 @@ function sendRequest(options: any) {
                 return Promise.resolve(jsonBody[value]);
               }
 
-              var p = jsonBody[value].map((val: string) => {
+              const p = jsonBody[value].map((val: string) => {
                 if (val.indexOf(BASE_URL) > -1) {
                   return makeRequest(val);
                 }
@@ -67,11 +67,11 @@ function sendRequest(options: any) {
 
 function makeRequest(url: string): Promise<any> {
   const options = {
-    url: (url.indexOf(BASE_URL) > -1) ? url : BASE_URL + url,
     headers: {
-      'User-Agent': 'swapi-node',
-      'SWAPI-Node-Version': require('../package.json').version
-    }
+      'SWAPI-Node-Version': require('../package.json').version,
+      'User-Agent': 'swapi-node'
+    },
+    url: (url.indexOf(BASE_URL) > -1) ? url : BASE_URL + url
   };
 
   return sendRequest(options);

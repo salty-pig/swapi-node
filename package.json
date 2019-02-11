@@ -5,13 +5,19 @@
   "main": "./dist/swapi-node.js",
   "types": "./dist/swapi-node.d.ts",
   "scripts": {
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
     "build": "tsc",
+    "lint": "tslint -p tsconfig.json",
     "test": "tape -r ts-node/register test/*.js | tap-spec",
     "coverage": "nyc npm run test",
     "coverage:html": "nyc npm test && nyc report --reporter=html",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "ci": "npm run test && npm run coveralls"
   },
+  "files": [
+    "lib/**/*"
+  ],
   "nyc": {
     "extension": [
       ".ts"
