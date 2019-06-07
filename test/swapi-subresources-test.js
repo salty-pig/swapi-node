@@ -13,8 +13,8 @@ test('property with link should have a corresponding getter', (t) => {
     .matchHeader('SWAPI-Node-Version', version)
     .get('/people/1')
     .reply(200, {
-        name: 'Luke Skywalker',
-        'homeworld': 'https://swapi.co/api/planets/1/',
+      name: 'Luke Skywalker',
+      'homeworld': 'https://swapi.co/api/planets/1/',
     });
 
   swapi.getPerson(1).then((result) => {
@@ -29,7 +29,7 @@ test('property with link should have a corresponding getter', (t) => {
       });
 
     return result.getHomeworld();
-  }).then((result) => {
+  }).then(() => {
     t.ok('succes returned');
     t.end();
   });
@@ -51,7 +51,7 @@ test('property with out link should have a corresponding getter anyway', (t) => 
 
     return result.getName();
   }).then((result) => {
-      t.equal(result, 'Luke Skywalker', 'should equal');
-      t.end();
+    t.equal(result, 'Luke Skywalker', 'should equal');
+    t.end();
   });
 });

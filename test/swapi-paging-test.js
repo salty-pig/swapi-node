@@ -29,9 +29,9 @@ test('returned value should have a nextPage added', (t) => {
         count: 82,
         next: 'https://swapi.co/api/people/?page=3',
         previous: null
-    });
+      });
 
-    result.nextPage().then((result) => {
+    result.nextPage().then(() => {
       t.pass('success returned');
       t.end();
     });
@@ -58,9 +58,9 @@ test('returned value should have a previousPage added', (t) => {
       .reply(200, {
         count: 82,
         previous: 'https://swapi.co/api/people/?page=1'
-    });
+      });
 
-    result.nextPage().then((result) => {
+    result.nextPage().then(() => {
       t.pass('success returned');
       t.end();
     });
