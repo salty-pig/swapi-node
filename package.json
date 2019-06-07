@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js",
-    "coverage": "istanbul cover tape -- test/*.js",
-    "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls",
-    "ci": "npm run test && npm run coveralls"
+    "coverage": "nyc npm test",
+    "lint": "eslint index.js test/** lib/**",
+    "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "ci": "npm run lint && npm run coveralls"
   },
   "author": {
     "name": "Lucas Holmquist",
@@ -24,8 +25,9 @@
   "license": "BSD",
   "devDependencies": {
     "coveralls": "^3.0.0",
-    "istanbul": "^0.4.5",
+    "eslint": "~5.16.0",
     "nock": "^10.0.6",
+    "nyc": "~14.1.1",
     "tape": "^4.6.3"
   },
   "dependencies": {

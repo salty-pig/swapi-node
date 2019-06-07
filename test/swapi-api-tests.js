@@ -14,7 +14,7 @@ test('GET a resource', (t) => {
     .get('/people/?page=2')
     .reply(200, {});
 
-  swapi.get('https://swapi.co/api/people/?page=2').then((result) => {
+  swapi.get('https://swapi.co/api/people/?page=2').then(() => {
     t.pass('return success');
     t.end();
   });
@@ -27,7 +27,7 @@ test('GET People - Return a Promise', (t) => {
     .get('/people/1')
     .reply(200, {});
 
-  const request = swapi.getPerson(1).then((result) => {
+  const request = swapi.getPerson(1).then(() => {
     t.pass('success return');
     t.end();
   });
@@ -42,7 +42,7 @@ test('GET People - using options', (t) => {
     .get('/people/1')
     .reply(200, {});
 
-  const request = swapi.getPerson({id: 1}).then((result) => {
+  swapi.getPerson({id: 1}).then(() => {
     t.pass('success return');
     t.end();
   });
@@ -55,7 +55,7 @@ test('GET People - error returned', (t) => {
     .get('/people/1')
     .reply(400, {});
 
-  const request = swapi.getPerson({id: 1}).then(null, (result) => {
+  swapi.getPerson({id: 1}).then(null, () => {
     t.pass('error return');
     t.end();
   });
@@ -68,7 +68,7 @@ test('GET films', (t) => {
     .get('/films/1')
     .reply(200, {});
 
-  const request = swapi.getFilm(1).then((result) => {
+  const request = swapi.getFilm(1).then(() => {
     t.pass('success return');
     t.end();
   });
@@ -83,7 +83,7 @@ test('GET films - with options', (t) => {
     .get('/films/1')
     .reply(200, {});
 
-  const request = swapi.getFilm({id: 1}).then((result) => {
+  swapi.getFilm({id: 1}).then(() => {
     t.pass('success return');
     t.end();
   });
@@ -96,7 +96,7 @@ test('GET films - with error', (t) => {
     .get('/films/1')
     .reply(400, {});
 
-  const request = swapi.getFilm({id: 1}).then(null, (result) => {
+  swapi.getFilm({id: 1}).then(null, () => {
     t.pass('error return');
     t.end();
   });
@@ -109,7 +109,7 @@ test('GET starship', (t) => {
     .get('/starships/1')
     .reply(200, {});
 
-  const request = swapi.getStarship(1).then((result) => {
+  const request = swapi.getStarship(1).then(() => {
     t.pass('success return');
     t.end();
   });
@@ -124,7 +124,7 @@ test('GET starship - with options', (t) => {
     .get('/starships/1')
     .reply(200, {});
 
-  const request = swapi.getStarship({id: 1}).then((result) => {
+  swapi.getStarship({id: 1}).then(() => {
     t.pass('success return');
     t.end();
   });
@@ -137,7 +137,7 @@ test('GET starship - with error', (t) => {
     .get('/starships/1')
     .reply(400, {});
 
-  const request = swapi.getStarship({id: 1}).then(null, (result) => {
+  swapi.getStarship({id: 1}).then(null, () => {
     t.pass('error return');
     t.end();
   });
@@ -150,7 +150,7 @@ test('GET vehicles', (t) => {
     .get('/vehicles/1')
     .reply(200, {});
 
-  const request = swapi.getVehicle(1).then((result) => {
+  const request = swapi.getVehicle(1).then(() => {
     t.pass('success return');
     t.end();
   });
@@ -165,7 +165,7 @@ test('GET vehicles - with options', (t) => {
     .get('/vehicles/1')
     .reply(200, {});
 
-  const request = swapi.getVehicle({id: 1}).then((result) => {
+  swapi.getVehicle({id: 1}).then(() => {
     t.pass('success return');
     t.end();
   });
@@ -178,7 +178,7 @@ test('GET vehicles - with error', (t) => {
     .get('/vehicles/1')
     .reply(400, {});
 
-  const request = swapi.getVehicle({id: 1}).then(null, (result) => {
+  swapi.getVehicle({id: 1}).then(null, () => {
     t.pass('error return');
     t.end();
   });
@@ -191,7 +191,7 @@ test('GET species', (t) => {
     .get('/species/1')
     .reply(200, {});
 
-  const request = swapi.getSpecies(1).then((result) => {
+  const request = swapi.getSpecies(1).then(() => {
     t.pass('success return');
     t.end();
   });
@@ -206,7 +206,7 @@ test('GET species - with options', (t) => {
     .get('/species/1')
     .reply(200, {});
 
-  const request = swapi.getSpecies({id: 1}).then((result) => {
+  swapi.getSpecies({id: 1}).then(() => {
     t.pass('success return');
     t.end();
   });
@@ -219,7 +219,7 @@ test('GET species - with error', (t) => {
     .get('/species/1')
     .reply(400, {});
 
-  const request = swapi.getSpecies({id: 1}).then(null, (result) => {
+  swapi.getSpecies({id: 1}).then(null, () => {
     t.pass('error return');
     t.end();
   });
@@ -232,7 +232,7 @@ test('GET planets', (t) => {
     .get('/planets/1')
     .reply(200, {});
 
-  const request = swapi.getPlanets(1).then((result) => {
+  const request = swapi.getPlanets(1).then(() => {
     t.pass('success return');
     t.end();
   });
@@ -247,7 +247,7 @@ test('GET planets - with options', (t) => {
     .get('/planets/1')
     .reply(200, {});
 
-  const request = swapi.getPlanets({id: 1}).then((result) => {
+  swapi.getPlanets({id: 1}).then(() => {
     t.pass('success return');
     t.end();
   });
@@ -260,7 +260,7 @@ test('GET planets - with error', (t) => {
     .get('/planets/1')
     .reply(400, {});
 
-  const request = swapi.getPlanets({id: 1}).then(null, (result) => {
+  swapi.getPlanets({id: 1}).then(null, () => {
     t.pass('error return');
     t.end();
   });
