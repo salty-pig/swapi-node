@@ -2,266 +2,257 @@
 
 const nock = require('nock');
 const swapi = require('../lib/swapi-node.js');
-const version = require('../package.json').version;
+const {version} = require('../package.json');
 const test = require('tape');
 
 nock.disableNetConnect();
 
-test('GET a resource', (t) => {
+test('GET a resource', async t => {
   nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/people/?page=2')
     .reply(200, {});
 
-  swapi.get('https://swapi.co/api/people/?page=2').then(() => {
-    t.pass('return success');
-    t.end();
-  });
+  await swapi.get('https://swapi.co/api/people/?page=2');
+  t.pass('return success');
+  t.end();
 });
 
-test('GET People - Return a Promise', (t) => {
+test('GET People - Return a Promise', async t => {
   nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/people/1')
     .reply(200, {});
 
-  const request = swapi.getPerson(1).then(() => {
-    t.pass('success return');
-    t.end();
-  });
+  const request = swapi.getPerson(1);
 
   t.equal(request instanceof Promise, true, 'should return a Promise');
+  t.end();
 });
 
-test('GET People - using options', (t) => {
+test('GET People - using options', async t => {
   nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/people/1')
     .reply(200, {});
 
-  swapi.getPerson({id: 1}).then(() => {
-    t.pass('success return');
-    t.end();
-  });
+  await swapi.getPerson({id: 1});
+  t.pass('success return');
+  t.end();
 });
 
-test('GET People - error returned', (t) => {
+test('GET People - error returned', async t => {
   nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/people/1')
     .reply(400, {});
-
-  swapi.getPerson({id: 1}).then(null, () => {
+  try {
+    await swapi.getPerson({id: 1});
+  } catch {
     t.pass('error return');
     t.end();
-  });
+  }
 });
 
-test('GET films', (t) => {
+test('GET films', async t => {
   nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/films/1')
     .reply(200, {});
 
-  const request = swapi.getFilm(1).then(() => {
-    t.pass('success return');
-    t.end();
-  });
+  const request = swapi.getFilm(1);
 
   t.equal(request instanceof Promise, true, 'should return a Promise');
+  t.end();
 });
 
-test('GET films - with options', (t) => {
+test('GET films - with options', async t => {
   nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/films/1')
     .reply(200, {});
 
-  swapi.getFilm({id: 1}).then(() => {
-    t.pass('success return');
-    t.end();
-  });
+  await swapi.getFilm({id: 1});
+  t.pass('success return');
+  t.end();
 });
 
-test('GET films - with error', (t) => {
+test('GET films - with error', async t => {
   nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/films/1')
     .reply(400, {});
 
-  swapi.getFilm({id: 1}).then(null, () => {
+  try {
+    await swapi.getFilm({id: 1});
+  } catch {
     t.pass('error return');
     t.end();
-  });
+  }
 });
 
-test('GET starship', (t) => {
+test('GET starship', async t => {
   nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/starships/1')
     .reply(200, {});
 
-  const request = swapi.getStarship(1).then(() => {
-    t.pass('success return');
-    t.end();
-  });
+  const request = swapi.getStarship(1);
 
   t.equal(request instanceof Promise, true, 'should return a Promise');
+  t.end();
 });
 
-test('GET starship - with options', (t) => {
+test('GET starship - with options', async t => {
   nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/starships/1')
     .reply(200, {});
 
-  swapi.getStarship({id: 1}).then(() => {
-    t.pass('success return');
-    t.end();
-  });
+  await swapi.getStarship({id: 1});
+  t.pass('success return');
+  t.end();
 });
 
-test('GET starship - with error', (t) => {
+test('GET starship - with error', async t => {
   nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/starships/1')
     .reply(400, {});
-
-  swapi.getStarship({id: 1}).then(null, () => {
+  try {
+    await swapi.getStarship({id: 1});
+  } catch {
     t.pass('error return');
     t.end();
-  });
+  }
 });
 
-test('GET vehicles', (t) => {
+test('GET vehicles', async t => {
   nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/vehicles/1')
     .reply(200, {});
 
-  const request = swapi.getVehicle(1).then(() => {
-    t.pass('success return');
-    t.end();
-  });
+  const request = swapi.getVehicle(1);
 
   t.equal(request instanceof Promise, true, 'should return a Promise');
+  t.end();
 });
 
-test('GET vehicles - with options', (t) => {
+test('GET vehicles - with options', async t => {
   nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/vehicles/1')
     .reply(200, {});
 
-  swapi.getVehicle({id: 1}).then(() => {
-    t.pass('success return');
-    t.end();
-  });
+  await swapi.getVehicle({id: 1});
+  t.pass('success return');
+  t.end();
 });
 
-test('GET vehicles - with error', (t) => {
+test('GET vehicles - with error', async t => {
   nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/vehicles/1')
     .reply(400, {});
 
-  swapi.getVehicle({id: 1}).then(null, () => {
+  try {
+    await swapi.getVehicle({id: 1});
+  } catch {
     t.pass('error return');
     t.end();
-  });
+  }
 });
 
-test('GET species', (t) => {
+test('GET species', async t => {
   nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/species/1')
     .reply(200, {});
 
-  const request = swapi.getSpecies(1).then(() => {
-    t.pass('success return');
-    t.end();
-  });
+  const request = swapi.getSpecies(1);
 
   t.equal(request instanceof Promise, true, 'should return a Promise');
+  t.end();
 });
 
-test('GET species - with options', (t) => {
+test('GET species - with options', async t => {
   nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/species/1')
     .reply(200, {});
 
-  swapi.getSpecies({id: 1}).then(() => {
-    t.pass('success return');
-    t.end();
-  });
+  await swapi.getSpecies({id: 1});
+  t.pass('success return');
+  t.end();
 });
 
-test('GET species - with error', (t) => {
+test('GET species - with error', async t => {
   nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/species/1')
     .reply(400, {});
 
-  swapi.getSpecies({id: 1}).then(null, () => {
+  try {
+    await swapi.getSpecies({id: 1});
+  } catch {
     t.pass('error return');
     t.end();
-  });
+  }
 });
 
-test('GET planets', (t) => {
+test('GET planets', async t => {
   nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/planets/1')
     .reply(200, {});
 
-  const request = swapi.getPlanets(1).then(() => {
-    t.pass('success return');
-    t.end();
-  });
+  const request = swapi.getPlanets(1);
 
   t.equal(request instanceof Promise, true, 'should return a Promise');
+  t.end();
 });
 
-test('GET planets - with options', (t) => {
+test('GET planets - with options', async t => {
   nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/planets/1')
     .reply(200, {});
 
-  swapi.getPlanets({id: 1}).then(() => {
-    t.pass('success return');
-    t.end();
-  });
+  await swapi.getPlanets({id: 1});
+  t.pass('success return');
+  t.end();
 });
 
-test('GET planets - with error', (t) => {
+test('GET planets - with error', async t => {
   nock('https://swapi.co/api/')
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/planets/1')
     .reply(400, {});
 
-  swapi.getPlanets({id: 1}).then(null, () => {
+  try {
+    await swapi.getPlanets({id: 1});
+  } catch {
     t.pass('error return');
     t.end();
-  });
+  }
 });
