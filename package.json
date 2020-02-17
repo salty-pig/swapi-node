@@ -11,7 +11,8 @@
     "coverage": "nyc npm test",
     "lint": "eslint index.js test/** lib/**",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
-    "ci": "npm run lint && npm run coveralls"
+    "ci": "npm run lint && npm run coveralls",
+    "release": "standard-version"
   },
   "author": {
     "name": "Lucas Holmquist",
@@ -31,6 +32,7 @@
     "eslint": "~6.7.2",
     "nock": "^12.0.0",
     "nyc": "~15.0.0",
+    "standard-version": "~7.1.0",
     "tape": "^4.6.3"
   },
   "dependencies": {
