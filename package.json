@@ -3,6 +3,9 @@
   "version": "0.4.4",
   "description": "A Node.js helper library for swapi.co",
   "main": "index.js",
+  "engines": {
+    "node": ">= 10.14.0"
+  },
   "scripts": {
     "test": "tape test/*.js",
     "coverage": "nyc npm test",
