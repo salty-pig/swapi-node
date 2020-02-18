@@ -1,8 +1,10 @@
-const swapi = require('./index.js');
+'use strict';
 
-swapi.getPerson().then((result) => {
-    console.log(result);
-}).catch((err) => {
-    console.log(err);
+const swapi = require('swapi-node');
+
+swapi.getPerson().then(result => {
+  console.log(result);
+}).catch(error => {
+  console.log(error);
 });
 
