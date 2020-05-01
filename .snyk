@@ -1,0 +1,52 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - nock > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - xo > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - standard-version > conventional-changelog-conventionalcommits > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - xo > eslint > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - xo > eslint-import-resolver-webpack > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - xo > eslint-plugin-unicorn > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - nyc > istanbul-lib-instrument > @babel/core > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - standard-version > conventional-changelog > conventional-changelog-conventionalcommits > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - standard-version > conventional-recommended-bump > conventional-commits-parser > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - standard-version > conventional-changelog > conventional-changelog-core > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - xo > @typescript-eslint/parser > @typescript-eslint/typescript-estree > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - xo > eslint > inquirer > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - xo > eslint > table > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - xo > eslint-plugin-ava > enhance-visitors > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - nyc > istanbul-lib-instrument > @babel/core > @babel/helper-module-transforms > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - standard-version > conventional-changelog > conventional-changelog-core > conventional-changelog-writer > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - standard-version > conventional-changelog > conventional-changelog-core > conventional-commits-parser > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - xo > @typescript-eslint/parser > @typescript-eslint/experimental-utils > @typescript-eslint/typescript-estree > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - nyc > istanbul-lib-instrument > @babel/core > @babel/helpers > @babel/traverse > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - nyc > istanbul-lib-instrument > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - nyc > istanbul-lib-instrument > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - nyc > istanbul-lib-instrument > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
+    - nyc > istanbul-lib-instrument > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2020-05-01T03:20:44.622Z'
