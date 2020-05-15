@@ -5,29 +5,31 @@ const swapi = require('../lib/swapi-node.js');
 const {version} = require('../package.json');
 const test = require('tape');
 
+const BASE_URL = 'https://swapi.dev/api';
+
 nock.disableNetConnect();
 
 test('returned value should have a nextPage added', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/people/')
     .reply(200, {
       count: 82,
-      next: 'https://swapi.co/api/people/?page=2',
+      next: `${BASE_URL}/people/?page=2`,
       previous: null
     });
 
-  const result = await swapi.get('https://swapi.co/api/people/');
+  const result = await swapi.get(`${BASE_URL}/people/`);
   t.equal(typeof result.nextPage, 'function', 'should be a next function');
 
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/people/?page=2')
     .reply(200, {
       count: 82,
-      next: 'https://swapi.co/api/people/?page=3',
+      next: `${BASE_URL}/people/?page=3`,
       previous: null
     });
 
@@ -37,25 +39,25 @@ test('returned value should have a nextPage added', async t => {
 });
 
 test('returned value should have a previousPage added', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/people/')
     .reply(200, {
       count: 82,
-      previous: 'https://swapi.co/api/people/?page=2'
+      previous: `${BASE_URL}/people/?page=2`
     });
 
-  const result = await swapi.get('https://swapi.co/api/people/');
+  const result = await swapi.get(`${BASE_URL}/people/`);
   t.equal(typeof result.previousPage, 'function', 'should be a next function');
 
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/people/?page=2')
     .reply(200, {
       count: 82,
-      previous: 'https://swapi.co/api/people/?page=1'
+      previous: `${BASE_URL}/people/?page=1`
     });
 
   await result.nextPage();

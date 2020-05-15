@@ -5,22 +5,24 @@ const swapi = require('../lib/swapi-node.js');
 const {version} = require('../package.json');
 const test = require('tape');
 
+const BASE_URL = 'https://swapi.dev/api';
+
 nock.disableNetConnect();
 
 test('GET a resource', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/people/?page=2')
     .reply(200, {});
 
-  await swapi.get('https://swapi.co/api/people/?page=2');
+  await swapi.get(`${BASE_URL}/people/?page=2`);
   t.pass('return success');
   t.end();
 });
 
 test('GET People - Return a Promise', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/people/1')
@@ -33,7 +35,7 @@ test('GET People - Return a Promise', async t => {
 });
 
 test('GET People - using options', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/people/1')
@@ -45,7 +47,7 @@ test('GET People - using options', async t => {
 });
 
 test('GET People - error returned', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/people/1')
@@ -59,7 +61,7 @@ test('GET People - error returned', async t => {
 });
 
 test('GET films', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/films/1')
@@ -72,7 +74,7 @@ test('GET films', async t => {
 });
 
 test('GET films - with options', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/films/1')
@@ -84,7 +86,7 @@ test('GET films - with options', async t => {
 });
 
 test('GET films - with error', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/films/1')
@@ -99,7 +101,7 @@ test('GET films - with error', async t => {
 });
 
 test('GET starship', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/starships/1')
@@ -112,7 +114,7 @@ test('GET starship', async t => {
 });
 
 test('GET starship - with options', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/starships/1')
@@ -124,7 +126,7 @@ test('GET starship - with options', async t => {
 });
 
 test('GET starship - with error', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/starships/1')
@@ -138,7 +140,7 @@ test('GET starship - with error', async t => {
 });
 
 test('GET vehicles', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/vehicles/1')
@@ -151,7 +153,7 @@ test('GET vehicles', async t => {
 });
 
 test('GET vehicles - with options', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/vehicles/1')
@@ -163,7 +165,7 @@ test('GET vehicles - with options', async t => {
 });
 
 test('GET vehicles - with error', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/vehicles/1')
@@ -178,7 +180,7 @@ test('GET vehicles - with error', async t => {
 });
 
 test('GET species', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/species/1')
@@ -191,7 +193,7 @@ test('GET species', async t => {
 });
 
 test('GET species - with options', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/species/1')
@@ -203,7 +205,7 @@ test('GET species - with options', async t => {
 });
 
 test('GET species - with error', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/species/1')
@@ -218,7 +220,7 @@ test('GET species - with error', async t => {
 });
 
 test('GET planets', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/planets/1')
@@ -231,7 +233,7 @@ test('GET planets', async t => {
 });
 
 test('GET planets - with options', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/planets/1')
@@ -243,7 +245,7 @@ test('GET planets - with options', async t => {
 });
 
 test('GET planets - with error', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/planets/1')
