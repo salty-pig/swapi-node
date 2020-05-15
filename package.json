@@ -1,7 +1,7 @@
 {
   "name": "swapi-node",
-  "version": "0.5.0",
-  "description": "A Node.js helper library for swapi.co",
+  "version": "0.6.0",
+  "description": "A Node.js helper library for SWAPI",
   "main": "index.js",
   "engines": {
     "node": ">= 10.14.0"
