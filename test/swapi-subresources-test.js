@@ -7,20 +7,22 @@ const test = require('tape');
 
 nock.disableNetConnect();
 
+const BASE_URL = 'https://swapi.dev/api';
+
 test('property with link should have a corresponding getter', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/people/1')
     .reply(200, {
       name: 'Luke Skywalker',
-      homeworld: 'https://swapi.co/api/planets/1/'
+      homeworld: `${BASE_URL}/planets/1/`
     });
 
   const result = await swapi.getPerson(1);
   t.equal((typeof result.getHomeworld === 'function'), true, 'should be a function');
 
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/planets/1/')
@@ -34,13 +36,13 @@ test('property with link should have a corresponding getter', async t => {
 });
 
 test('property with out link should have a corresponding getter anyway', async t => {
-  nock('https://swapi.co/api/')
+  nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
     .matchHeader('SWAPI-Node-Version', version)
     .get('/people/1')
     .reply(200, {
       name: 'Luke Skywalker',
-      homeworld: 'https://swapi.co/api/planets/1/'
+      homeworld: `${BASE_URL}/planets/1/`
     });
 
   const result = await swapi.getPerson(1);
