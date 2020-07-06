@@ -46,6 +46,6 @@
     "xo": "0.32.1"
   },
   "dependencies": {
-    "request": "~2.88.0"
+    "node-fetch": "^2.6.0"
   }
 }
