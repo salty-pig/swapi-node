@@ -2,7 +2,7 @@
 
 const nock = require('nock');
 const swapi = require('../lib/swapi-node.js');
-const {version} = require('../package.json');
+const { version } = require('../package.json');
 const test = require('tape');
 
 const BASE_URL = 'https://swapi.dev/api';
@@ -41,7 +41,7 @@ test('GET People - using options', async t => {
     .get('/people/1')
     .reply(200, {});
 
-  await swapi.getPerson({id: 1});
+  await swapi.getPerson({ id: 1 });
   t.pass('success return');
   t.end();
 });
@@ -53,7 +53,7 @@ test('GET People - error returned', async t => {
     .get('/people/1')
     .reply(400, {});
   try {
-    await swapi.getPerson({id: 1});
+    await swapi.getPerson({ id: 1 });
   } catch {
     t.pass('error return');
     t.end();
@@ -80,7 +80,7 @@ test('GET films - with options', async t => {
     .get('/films/1')
     .reply(200, {});
 
-  await swapi.getFilm({id: 1});
+  await swapi.getFilm({ id: 1 });
   t.pass('success return');
   t.end();
 });
@@ -93,7 +93,7 @@ test('GET films - with error', async t => {
     .reply(400, {});
 
   try {
-    await swapi.getFilm({id: 1});
+    await swapi.getFilm({ id: 1 });
   } catch {
     t.pass('error return');
     t.end();
@@ -120,7 +120,7 @@ test('GET starship - with options', async t => {
     .get('/starships/1')
     .reply(200, {});
 
-  await swapi.getStarship({id: 1});
+  await swapi.getStarship({ id: 1 });
   t.pass('success return');
   t.end();
 });
@@ -132,7 +132,7 @@ test('GET starship - with error', async t => {
     .get('/starships/1')
     .reply(400, {});
   try {
-    await swapi.getStarship({id: 1});
+    await swapi.getStarship({ id: 1 });
   } catch {
     t.pass('error return');
     t.end();
@@ -159,7 +159,7 @@ test('GET vehicles - with options', async t => {
     .get('/vehicles/1')
     .reply(200, {});
 
-  await swapi.getVehicle({id: 1});
+  await swapi.getVehicle({ id: 1 });
   t.pass('success return');
   t.end();
 });
@@ -172,7 +172,7 @@ test('GET vehicles - with error', async t => {
     .reply(400, {});
 
   try {
-    await swapi.getVehicle({id: 1});
+    await swapi.getVehicle({ id: 1 });
   } catch {
     t.pass('error return');
     t.end();
@@ -199,7 +199,7 @@ test('GET species - with options', async t => {
     .get('/species/1')
     .reply(200, {});
 
-  await swapi.getSpecies({id: 1});
+  await swapi.getSpecies({ id: 1 });
   t.pass('success return');
   t.end();
 });
@@ -212,7 +212,7 @@ test('GET species - with error', async t => {
     .reply(400, {});
 
   try {
-    await swapi.getSpecies({id: 1});
+    await swapi.getSpecies({ id: 1 });
   } catch {
     t.pass('error return');
     t.end();
@@ -239,7 +239,7 @@ test('GET planets - with options', async t => {
     .get('/planets/1')
     .reply(200, {});
 
-  await swapi.getPlanets({id: 1});
+  await swapi.getPlanets({ id: 1 });
   t.pass('success return');
   t.end();
 });
@@ -252,7 +252,7 @@ test('GET planets - with error', async t => {
     .reply(400, {});
 
   try {
-    await swapi.getPlanets({id: 1});
+    await swapi.getPlanets({ id: 1 });
   } catch {
     t.pass('error return');
     t.end();

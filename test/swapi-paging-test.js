@@ -2,7 +2,7 @@
 
 const nock = require('nock');
 const swapi = require('../lib/swapi-node.js');
-const {version} = require('../package.json');
+const { version } = require('../package.json');
 const test = require('tape');
 
 const BASE_URL = 'https://swapi.dev/api';
