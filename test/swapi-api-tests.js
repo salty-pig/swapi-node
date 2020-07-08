@@ -34,6 +34,19 @@ test('GET People - Return a Promise', async t => {
   t.end();
 });
 
+test('GET People - Return a Promise', async t => {
+  nock(`${BASE_URL}/`)
+    .matchHeader('User-Agent', 'swapi-node')
+    .matchHeader('SWAPI-Node-Version', version)
+    .get('/people/1')
+    .reply(200, {});
+
+  const request = swapi.people(1);
+
+  t.equal(request instanceof Promise, true, 'should return a Promise');
+  t.end();
+});
+
 test('GET People - using options', async t => {
   nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
@@ -68,6 +81,19 @@ test('GET films', async t => {
     .reply(200, {});
 
   const request = swapi.getFilm(1);
+
+  t.equal(request instanceof Promise, true, 'should return a Promise');
+  t.end();
+});
+
+test('GET films', async t => {
+  nock(`${BASE_URL}/`)
+    .matchHeader('User-Agent', 'swapi-node')
+    .matchHeader('SWAPI-Node-Version', version)
+    .get('/films/1')
+    .reply(200, {});
+
+  const request = swapi.films(1);
 
   t.equal(request instanceof Promise, true, 'should return a Promise');
   t.end();
@@ -113,6 +139,19 @@ test('GET starship', async t => {
   t.end();
 });
 
+test('GET starship', async t => {
+  nock(`${BASE_URL}/`)
+    .matchHeader('User-Agent', 'swapi-node')
+    .matchHeader('SWAPI-Node-Version', version)
+    .get('/starships/1')
+    .reply(200, {});
+
+  const request = swapi.starships(1);
+
+  t.equal(request instanceof Promise, true, 'should return a Promise');
+  t.end();
+});
+
 test('GET starship - with options', async t => {
   nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
@@ -147,6 +186,19 @@ test('GET vehicles', async t => {
     .reply(200, {});
 
   const request = swapi.getVehicle(1);
+
+  t.equal(request instanceof Promise, true, 'should return a Promise');
+  t.end();
+});
+
+test('GET vehicles', async t => {
+  nock(`${BASE_URL}/`)
+    .matchHeader('User-Agent', 'swapi-node')
+    .matchHeader('SWAPI-Node-Version', version)
+    .get('/vehicles/1')
+    .reply(200, {});
+
+  const request = swapi.vehicles(1);
 
   t.equal(request instanceof Promise, true, 'should return a Promise');
   t.end();
@@ -192,6 +244,19 @@ test('GET species', async t => {
   t.end();
 });
 
+test('GET species', async t => {
+  nock(`${BASE_URL}/`)
+    .matchHeader('User-Agent', 'swapi-node')
+    .matchHeader('SWAPI-Node-Version', version)
+    .get('/species/1')
+    .reply(200, {});
+
+  const request = swapi.species(1);
+
+  t.equal(request instanceof Promise, true, 'should return a Promise');
+  t.end();
+});
+
 test('GET species - with options', async t => {
   nock(`${BASE_URL}/`)
     .matchHeader('User-Agent', 'swapi-node')
@@ -227,6 +292,19 @@ test('GET planets', async t => {
     .reply(200, {});
 
   const request = swapi.getPlanets(1);
+
+  t.equal(request instanceof Promise, true, 'should return a Promise');
+  t.end();
+});
+
+test('GET planets', async t => {
+  nock(`${BASE_URL}/`)
+    .matchHeader('User-Agent', 'swapi-node')
+    .matchHeader('SWAPI-Node-Version', version)
+    .get('/planets/1')
+    .reply(200, {});
+
+  const request = swapi.planets(1);
 
   t.equal(request instanceof Promise, true, 'should return a Promise');
   t.end();

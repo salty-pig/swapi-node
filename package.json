@@ -22,6 +22,9 @@
         "error",
         "always"
       ],
+      "unicorn/no-reduce": [
+        "off"
+      ],
       "space-before-function-paren": [
         "error",
         "always"
