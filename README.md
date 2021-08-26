@@ -20,7 +20,7 @@ A Node.js helper library for http://swapi.dev/ - the Star Wars API
 
     const swapi = require('swapi-node');
 
-    swapi.getPerson(1).then((result) => {
+    swapi.people({ id: 1 }).then((result) => {
         console.log(result);
     });
 
@@ -54,7 +54,7 @@ Here is an example
 
 There are some values that return a link.  To make it easier to deal with these, there are corresponding getters for those properties.
 
-For example,  a call to `getPerson(1)` might return this json:
+For example,  a call to `people({id: 1})` might return this json:
 
     {
         "name": "Luke Skywalker",
