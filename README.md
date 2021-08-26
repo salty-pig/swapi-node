@@ -1,4 +1,4 @@
-## swapi-node [![Dependency Status](https://david-dm.org/salty-pig/swapi-node.png)](https://david-dm.org/salty-pig/swapi-node) [![Coverage Status](https://coveralls.io/repos/salty-pig/swapi-node/badge.svg?branch=master&service=github)](https://coveralls.io/github/salty-pig/swapi-node?branch=master)
+## swapi-node [![Node.js CI](https://github.com/salty-pig/swapi-node/actions/workflows/nodejs-ci-action.yml/badge.svg)](https://github.com/salty-pig/swapi-node/actions/workflows/nodejs-ci-action.yml)[![Dependency Status](https://david-dm.org/salty-pig/swapi-node.png)](https://david-dm.org/salty-pig/swapi-node) [![Coverage Status](https://coveralls.io/repos/salty-pig/swapi-node/badge.svg?branch=master&service=github)](https://coveralls.io/github/salty-pig/swapi-node?branch=master)
 
 
 
