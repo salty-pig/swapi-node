@@ -7,7 +7,7 @@
     "node": ">= 10.14.0"
   },
   "scripts": {
-    "test": "tape test/*.js",
+    "test": "nyc tape test/*.js | tap-spec",
     "coverage": "nyc npm test",
     "lint": "xo",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
