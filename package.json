@@ -13,7 +13,9 @@
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "coverage:html": "nyc npm test && nyc report --reporter=html",
     "ci": "npm run lint && npm run coveralls",
-    "release": "standard-version"
+    "release": "standard-version",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "xo": {
     "space": 2,
@@ -54,6 +56,8 @@
     "xo": "0.36.1"
   },
   "dependencies": {
-    "request": "~2.88.0"
-  }
+    "request": "~2.88.0",
+    "@snyk/protect": "latest"
+  },
+  "snyk": true
 }

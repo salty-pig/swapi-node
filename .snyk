@@ -1,0 +1,10 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.21.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - standard-version > conventional-recommended-bump > git-raw-commits > lodash:
+        patched: '2021-08-27T13:14:51.221Z'
+    - standard-version > conventional-changelog > conventional-changelog-core > git-raw-commits > lodash:
+        patched: '2021-08-27T13:14:51.221Z'
