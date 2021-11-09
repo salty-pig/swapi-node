@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.1](https://www.github.com/salty-pig/swapi-node/compare/v0.7.0...v0.7.1) (2021-11-09)
+
+
+### Bug Fixes
+
+* upgrade standard-version from 9.3.1 to 9.3.2 ([#132](https://www.github.com/salty-pig/swapi-node/issues/132)) ([0a9dbf3](https://www.github.com/salty-pig/swapi-node/commit/0a9dbf30279d2a657ad8bf2bca9a32c85c1f59ef))
+* upgrade xo from 0.43.0 to 0.44.0 ([#129](https://www.github.com/salty-pig/swapi-node/issues/129)) ([2892c8b](https://www.github.com/salty-pig/swapi-node/commit/2892c8b41f64b2982733a5585da089df398727fd))
+* upgrade xo from 0.44.0 to 0.45.0 ([#131](https://www.github.com/salty-pig/swapi-node/issues/131)) ([e914b14](https://www.github.com/salty-pig/swapi-node/commit/e914b140aaf08d3b632b7bf6f30a13b6d545ce38))
+
 ## [0.7.0](https://www.github.com/salty-pig/swapi-node/compare/v0.6.0...v0.7.0) (2021-10-12)
 
 
