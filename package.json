@@ -50,7 +50,7 @@
     "nyc": "15.1.0",
     "standard-version": "9.3.2",
     "tap-spec": "^5.0.0",
-    "tape": "5.3.1",
+    "tape": "5.3.2",
     "xo": "0.45.0"
   },
   "dependencies": {
